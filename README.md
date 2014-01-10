@@ -6,7 +6,7 @@ A small browser based IDE, featuring a canvas element, a console and a text area
 
 **Supported API**
 
-`log` - write variable to the console
+`log` - write variables to the console
 
 `canvas` - the canvas element
 
