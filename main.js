@@ -61,7 +61,7 @@ function inputWatch(field) {
       e.preventDefault();
     if(notifyId)
       window.clearTimeout(notifyId);
-    notifyId = window.setTimeout(runFunction, 180, inputs); // let me type :)
+    notifyId = window.setTimeout(runFunction, 60, inputs); // let me type :)
   }
 }
 
@@ -80,16 +80,13 @@ function emptyArray(list) {
 }
 
 function indentSelection(text, bounds, invert) {
-  /* issues:
-    1. shift+tab at end of line deletes text - should indent if possible or return
-    2. shift at end of all text indent line - should insert spaces
-    3. shift+tab at end of all text throws an error
-    4. shift+tab somewhere in a line throws when reverse indentation is not possible
-    test text:
-    fff
-     fff
-    fff
-  */
+/* issues:
+1. shift+tab at end of line deletes text - should indent if possible or return
+test text:
+fff
+ fff
+fff
+*/
   // from http://jsbin.com/ijedi
   var indentation, newText;
   var spaces = " ".repeat(config.indentation || 2);
@@ -102,7 +99,7 @@ function indentSelection(text, bounds, invert) {
   var empty = /^\s*$/g;
   var affectedLines = 0;
   // extend the selection start until the previous new line
-  start = text.lastIndexOf("\n", start);
+  start = text.lastIndexOf("\n", (singleSelection && invert) ? start-1 : start );
   // if there isn't a new line before,
   // then extend the selection until the beginning of the text
   if(start === -1)
@@ -125,17 +122,20 @@ function indentSelection(text, bounds, invert) {
   // get text to indent
   indentation = text.substring(start, end);
 
-  // if(empty.test(indentation)) {
-  //   affectedLines = 1;
-  //   indentation = invert ? "" : "  " + indentation;
-  // }  
-
   // test if the indendation selection is empty
-  if(empty.test(indentation)) {
+  // note: or singleSelection could be used here to implement normal tab behavior
+  if(empty.test(indentation) || singleSelection) {
     affectedLines = 1;
-    if(invert) {
-      // test for line boundary
+    // fix for 1. shift+tab at end of line deletes text - should indent if possible or return
+    // note this is also runs for shift+tab in the middle of the last line
+    if( invert && !empty.test(text.substring(Math.min(start, end)-numberOfIndents, end)) ) {
+      var line = text.substring(Math.min(start, end), end);
+      // test if reverse identation is possible and return if not
+      if(invert && line.length === 0)
+        return;
+    }
 
+    if(invert) {
       indentation = ""; // nothing to indent
       start = bounds[0] - numberOfIndents; // "loose" n chars
       end = bounds[0]
@@ -143,17 +143,21 @@ function indentSelection(text, bounds, invert) {
       indentation = spaces;
       start = end = bounds[0];
     }
-  } else { // count number of affected lines
+  } else {
+    // test if reverse identation is possible and return if not
+    if(invert && !removeSpace.test(indentation))
+      return;
+    // count number of affected lines
     affectedLines = invert ? indentation.match(removeSpace).length : indentation.match(addSpace).length;
     // add two spaces/backspaces before new lines
     indentation = invert ? indentation.replace(removeSpace, "") : indentation.replace(addSpace, spaces);
   }
   // rebuild the textarea content
-  log("start length:", text.length);
+//log("start length:", text.length);
   newText = text.substring(0, start);
   newText += indentation;
   newText += text.substring(end);
-  log("end length:", newText.length);
+//log("end length:", newText.length);
   ta.value = newText;
   if(singleSelection) {
     start = end = bounds[0] + (invert ? -numberOfIndents : numberOfIndents);
@@ -204,7 +208,7 @@ function format(o) {
     } else {
       f = classify(msg);
       html = createElement("span", f.value);        
-      window.setTimeout(function(){ setClasses(html, f.cls); }, 1000);
+      window.setTimeout(function(){ setClasses(html, f.cls); }, 600);
     }
     o.appendChild(html);
   }
