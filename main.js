@@ -130,8 +130,8 @@ fff
     // note this is also runs for shift+tab in the middle of the last line
     if( invert && !empty.test(text.substring(Math.min(start, end)-numberOfIndents, end)) ) {
       var line = text.substring(Math.min(start, end), end);
-      // test if reverse identation is possible and return if not
-      if(invert && line.length === 0)
+      // test if reverse identation is possible (abort if it means deletetion of text) and return if not
+      if(line.length === 0 || !empty.test(text.substring(bounds[0]-numberOfIndents, bounds[0])) )
         return;
     }
 

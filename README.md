@@ -4,7 +4,7 @@ small-ide
 A small browser based IDE, featuring a canvas element, a console and a text area.
 
 
-**Supported API**
+## Supported API
 
 `log` - write variables to the console
 
@@ -12,16 +12,26 @@ A small browser based IDE, featuring a canvas element, a console and a text area
 
 `draw` - the 2d context for the canvas
 
+`config` - just write `log(config)` in the editor and run the code (`shift` + `enter`)
 
-**Shortcuts**
+
+## Shortcuts
 
 `shift` + `enter` - run code
 
 `shift` + `backspace` - clear console
 
-With a text selection:
+**Indentations**:
 
-`tab` - indent code
+Without selection
+
+`tab` - insert two, or as configured, spaces (e.g. `config.indentation = 4`)
+
+`shift` + `tab` - delete two, or as configured, spaces to the left. Aborts if it means deletetion of text
+
+With a selection:
+
+`tab` - indentate selected line(s)
 
 `shift` + `tab` - reverse indent code
 
