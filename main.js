@@ -84,6 +84,11 @@ function indentSelection(text, bounds, invert) {
     1. shift+tab at end of line deletes text - should indent if possible or return
     2. shift at end of all text indent line - should insert spaces
     3. shift+tab at end of all text throws an error
+    4. shift+tab somewhere in a line throws when reverse indentation is not possible
+    test text:
+    fff
+     fff
+    fff
   */
   // from http://jsbin.com/ijedi
   var indentation, newText;
