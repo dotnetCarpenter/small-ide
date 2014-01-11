@@ -174,7 +174,7 @@ function selectText(start, end) {
 }
 
 function run(code) {
-  //out.clear();
+  out.clear();
   try {
     eval(code);
   } catch(e) {
