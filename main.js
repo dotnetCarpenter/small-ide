@@ -55,7 +55,7 @@ function inputWatch(field) {
     }
     extras = [field.selectionStart, field.selectionEnd];
     ke = new KeyEvent(e.shiftKey, e.ctrlKey, e.altKey, isSelection, charCode, value, extras);    
- log(ke.toString());
+// log(ke.toString());
     inputs.push(ke);
     if(events[ke.toString()])
       e.preventDefault();
@@ -174,7 +174,7 @@ function selectText(start, end) {
 }
 
 function run(code) {
-  out.clear();
+  //out.clear();
   try {
     eval(code);
   } catch(e) {
@@ -184,7 +184,11 @@ function run(code) {
 
 function log() {
   var args = Array.prototype.slice.call(arguments, 0).concat([null]);
+  var isScrolledToBottom = out.scrollHeight - out.clientHeight < out.scrollTop + 2; // allow 1px inaccuracy 
   args.forEach(writer);
+  // scroll to bottom if isScrolledToBottom
+  if(isScrolledToBottom)
+    out.scrollTop = out.scrollHeight - out.clientHeight;
 }
 
 function singleForEach(obj, fnname) {
@@ -226,6 +230,10 @@ function format(o) {
       case "number":
         ret.value = msg;
         ret.cls.push("num");
+        break;
+      case "boolean":
+        ret.value = msg;
+        ret.cls.push(msg.toString());
         break;
       default:
         ret.value = msg;

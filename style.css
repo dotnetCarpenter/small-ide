@@ -26,8 +26,11 @@ code {
     transition: color 1s;
   }
   .num {
-    color: hsl(257, 100%, 70%);
+    color: hsl(257, 100%, 70%);/*blue*/
   }
-  .obj {
-    color: hsl(117, 100%, 50%);
+  .obj, .true {
+    color: hsl(117, 100%, 50%);/*green*/
+  }
+  .false {
+    color: hsl(0, 100%, 56%); /*red*/
   }
