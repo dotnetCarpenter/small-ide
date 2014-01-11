@@ -55,7 +55,7 @@ function inputWatch(field) {
     }
     extras = [field.selectionStart, field.selectionEnd];
     ke = new KeyEvent(e.shiftKey, e.ctrlKey, e.altKey, isSelection, charCode, value, extras);    
-// log(ke.toString());
+ log(ke.toString());
     inputs.push(ke);
     if(events[ke.toString()])
       e.preventDefault();
