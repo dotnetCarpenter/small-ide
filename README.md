@@ -1,8 +1,14 @@
 small-ide
 =========
 
-A small browser based IDE, featuring a canvas element, a console and a text area.
+A small browser based IDE, featuring a canvas element, a console (with [sticky scroll](http://stackoverflow.com/questions/18614301/keep-overflow-div-scrolled-to-bottom-unless-user-scrolls-up/21067431#21067431)) and an editor.
 
+**Developed for**
+Firefox 26, Chrome 31 and Internet Explorer 11
+
+I recommend using [Hacker's Keyboard](https://play.google.com/store/apps/details?id=org.pocketworkstation.pckeyboard) on Android.
+
+[DEMO](http://dotnetcarpenter.github.io/small-ide/) [HISTORY](HISTORY.md)
 
 ## Supported API
 
@@ -23,7 +29,7 @@ A small browser based IDE, featuring a canvas element, a console and a text area
 
 **Indentations**:
 
-Without selection
+Without a selection
 
 `tab` - insert two, or as configured, spaces (e.g. `config.indentation = 4`)
 
@@ -31,10 +37,6 @@ Without selection
 
 With a selection:
 
-`tab` - indentate selected line(s)
+`tab` - indentation of selected line(s)
 
-`shift` + `tab` - reverse indent code
-
-
-**Tested in**
-Firefox 26, Chrome 31 and Internet Explorer 11
+`shift` + `tab` - reverse indentation of selected line(s)
