@@ -8,7 +8,9 @@ Firefox 26, Chrome 31 and Internet Explorer 11
 
 I recommend using [Hacker's Keyboard](https://play.google.com/store/apps/details?id=org.pocketworkstation.pckeyboard) on Android.
 
-[DEMO](http://dotnetcarpenter.github.io/small-ide/) [HISTORY](HISTORY.md)
+[DEMO](http://dotnetcarpenter.github.io/small-ide/)
+[HISTORY](HISTORY.md)
+[UNLICENSE](UNLICENSE.md)
 
 ## Supported API
 
