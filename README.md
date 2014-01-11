@@ -10,7 +10,7 @@ I recommend using [Hacker's Keyboard](https://play.google.com/store/apps/details
 
 [DEMO](http://dotnetcarpenter.github.io/small-ide/)
 [HISTORY](HISTORY.md)
-[UNLICENSE](UNLICENSE.md)
+[UNLICENSE](UNLICENSE)
 
 ## Supported API
 
