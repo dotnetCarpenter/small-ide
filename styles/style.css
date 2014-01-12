@@ -18,7 +18,7 @@ code {
   color: #fff;
   font-size: 1.4rem;
   overflow: auto;
-  background: url(darknoise.png) fixed;
+  background: url(../images/darknoise.png) fixed;
 }
   span {
     padding-left: .4rem;
