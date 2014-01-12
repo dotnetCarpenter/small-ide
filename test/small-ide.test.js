@@ -13,6 +13,8 @@ describe('small-ide', function() {
   });
 
   describe("Console", function() {
+    var formatDelay = 600; // check source if this is altered
+
     it("log should be defined", function() {
       expect(log).toBeDefined(undefined);
       expect(out).toBeDefined(undefined);
@@ -28,9 +30,12 @@ describe('small-ide', function() {
       out.clear();
     });
 
-    it("should display string", function() {
+    it("should display string(s)", function() {
       var string = "string", expected = "<span>" + string + "</span><br>";
       log(string);
+      expect(out.innerHTML).toEqual(expected);
+      expected += "<span>" + string + "</span><span>" + string + "</span><br>";
+      log(string, string);
       expect(out.innerHTML).toEqual(expected);
     });
 
@@ -40,7 +45,7 @@ describe('small-ide', function() {
       setTimeout(function() {
         expect(out.innerHTML).toEqual(expected);
         done();
-      }, 700);
+      }, formatDelay);
     });
 
     it("should display object", function(done) {
@@ -50,7 +55,7 @@ describe('small-ide', function() {
       setTimeout(function() {
         expect(out.innerHTML).toEqual(expected);
         done();
-      }, 700);
+      }, formatDelay);
     });
 
     it("should display arrays", function(done) {
@@ -59,7 +64,7 @@ describe('small-ide', function() {
       setTimeout(function() {
         expect(out.innerHTML).toEqual(expected);
         done();
-      }, 700);
+      }, formatDelay);
     });
 
     it("should scroll to the bottom if there is more elements logged that it can display", function(done) {
@@ -71,7 +76,7 @@ describe('small-ide', function() {
       setTimeout(function() {
         expect(out.innerHTML).toBe(expected);
         done();
-      }, 700);      
+      }, formatDelay);      
     })
 
     it("unless the user scrolls the console content", function(){
@@ -85,7 +90,7 @@ describe('small-ide', function() {
       setTimeout(function() {
         expect(out.innerHTML).toBe(expected);
         done();
-      }, 700);  
+      }, formatDelay);  
     });
 
   });
