@@ -1,6 +1,6 @@
 {
   "name": "small-ide",
-  "version": "0.2.0",
+  "version": "0.3.0",
   "homepage": "https://github.com/dotnetCarpenter/small-ide",
   "authors": [
     "dotnetCarpenter <jon.ronnenberg@gmail.com>"
@@ -19,9 +19,8 @@
     "tests"
   ],
   "devDependencies": {
-    "expect.js": "https://github.com/LearnBoost/expect.js.git#~0.2.0",
     "happen": "tmcw/happen#~0.1.3",
-    "mocha": "~1.17.0",
-    "laconic": "https://github.com/joestelmach/laconic.git"
+    "laconic": "https://github.com/joestelmach/laconic.git",
+    "jasmine": "~2.0.0"
   }
 }
