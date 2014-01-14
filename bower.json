@@ -16,11 +16,11 @@
     "node_modules",
     "bower_components",
     "test",
-    "tests"
+    "tests",
+    "workspace"
   ],
   "devDependencies": {
     "happen": "tmcw/happen#~0.1.3",
-    "laconic": "https://github.com/joestelmach/laconic.git",
     "jasmine": "~2.0.0"
   }
 }
