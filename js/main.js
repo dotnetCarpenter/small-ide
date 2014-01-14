@@ -173,7 +173,7 @@ fff
 }
 
 function selectText(start, end) {
-  ta.setSelectionRange(start, end);
+  ta.setSelectionRange(start, end || start);
 }
 
 function run(code) {
