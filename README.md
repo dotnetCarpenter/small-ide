@@ -43,3 +43,8 @@ With a selection:
 `tab` - indentation of selected line(s)
 
 `shift` + `tab` - reverse indentation of selected line(s)
+
+## Development
+
+You can either `git clone https://github.com/dotnetCarpenter/small-ide.git` or `bower i small-ide` and then `cd bower_components/small-ide && bower i`, to get the development depedencies.
+If you want to use a newer version of [happen](https://github.com/tmcw/happen) and/or [jasmine](http://jasmine.github.io/2.0/introduction.html) than already in the test folder, you need to copy _happen.js_ from _bower_components/happen_ into _test/lib_. And unzip _jasmine-standalone-2.\*.zip_ from _bower_components/jasmine/dist_ into _test/lib_.
