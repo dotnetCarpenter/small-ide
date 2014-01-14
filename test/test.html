@@ -9,8 +9,12 @@
   <link rel="shortcut icon" type="image/png" href="lib/jasmine-2.0.0/jasmine_favicon.png">
   <link rel="stylesheet" type="text/css" href="lib/jasmine-2.0.0/jasmine.css">
   <style>
-    canvas, code, textarea {
+    canvas, code {
       visibility: hidden;
+    }
+    textarea { /*KLUDGE: in IE setSelectionRange() does nothing if textarea is hidden */
+      position: absolute;
+      left: -200px;
     }
     code {
       height: 50px;
@@ -31,9 +35,8 @@
   <canvas></canvas><code></code>
   <textarea spellcheck="false" autofocus="true"></textarea>
 <!-- /fixture -->
-  <script src="../js/main.js" charset="utf-8"></script>  
-  <script src="../bower_components/laconic/laconic.js"></script>
-  <script src="../bower_components/happen/happen.js"></script>
+  <script src="../js/main.js" charset="utf-8"></script>
+  <script src="lib/happen.js"></script>
   <script src="small-ide.test.js"></script>
 </body>
 </html>
