@@ -202,7 +202,8 @@ function singleForEach(obj, fnname) {
 
 function createElement(name, value) {
   var html = document.createElement(name);
-  html.innerHTML = value;
+  if(value !== undefined)
+    html.innerHTML = value;
   return html;
 }
 
@@ -211,7 +212,7 @@ function format(o) {
   return function(msg) {
     var f, html;
     if(msg === null) {
-      html = createElement("br", msg);
+      html = createElement("br");
     } else {
       f = classify(msg);
       html = createElement("span", f.value);        
