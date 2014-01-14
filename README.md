@@ -1,7 +1,7 @@
 small-ide
 =========
 
-A small browser based IDE, featuring a canvas element, a console (with [sticky scroll](http://stackoverflow.com/questions/18614301/keep-overflow-div-scrolled-to-bottom-unless-user-scrolls-up/21067431#21067431)) and an editor.
+A small browser based IDE for web development, featuring a canvas element, a console (with [sticky scroll](http://stackoverflow.com/questions/18614301/keep-overflow-div-scrolled-to-bottom-unless-user-scrolls-up/21067431#21067431)) and an editor.
 
 **Developed for**
 Firefox 26, Chrome 31 and Internet Explorer 11
